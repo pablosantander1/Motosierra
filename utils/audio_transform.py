@@ -2,11 +2,9 @@ import torch
 import torchaudio
 
 
-class AudioTransform:
-    """
-    Convierte un audio en un Mel Spectrogram.
-    """
+class AudioTransform(torch.nn.Module):
 
+    
     def __init__(
         self,
         sample_rate=44100,
@@ -14,6 +12,8 @@ class AudioTransform:
         hop_length=512,
         n_mels=64
     ):
+
+        super().__init__()
 
         self.mel = torchaudio.transforms.MelSpectrogram(
             sample_rate=sample_rate,
@@ -24,10 +24,17 @@ class AudioTransform:
 
         self.db = torchaudio.transforms.AmplitudeToDB()
 
-    def __call__(self, audio):
+
+    def forward(self, audio):
 
         mel = self.mel(audio)
 
         mel = self.db(mel)
+
+        mel = (
+            mel - mel.mean()
+        ) / (
+            mel.std() + 1e-8
+        )
 
         return mel
