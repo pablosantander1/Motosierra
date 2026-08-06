@@ -25,7 +25,7 @@ class MotosierraDataset(Dataset):
         print("Clases encontradas:")
         print(self.label_map)
 
-        # Longitud fija del audio (1 segundo a 44.1 kHz)
+        
         self.target_length = 44100
 
     def __len__(self):
@@ -50,13 +50,13 @@ class MotosierraDataset(Dataset):
             dtype=torch.float32
         )
 
-        # Si el audio es estéreo -> convertir a mono
+        
         if audio.ndim > 1:
             audio = audio.mean(dim=1)
 
-        # ==========================
+        
         # Normalizar longitud
-        # ==========================
+        
 
         if audio.shape[0] > self.target_length:
             # Recortar
@@ -67,10 +67,10 @@ class MotosierraDataset(Dataset):
             padding = self.target_length - audio.shape[0]
             audio = F.pad(audio, (0, padding))
 
-        # Agregar dimensión del canal
+    
         audio = audio.unsqueeze(0)
 
-        # Aplicar transformación si existe
+        # Aplicar transformación 
         if self.transform is not None:
             audio = self.transform(audio)
 
