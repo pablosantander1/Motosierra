@@ -25,18 +25,15 @@ NEGATIVE_SAMPLES = 450
 
 RANDOM_SEED = 42
 
-# ==========================
+
 # CREAR CARPETAS
-# ==========================
 
 os.makedirs(CHAINSAW_DEST, exist_ok=True)
 os.makedirs(NO_CHAINSAW_DEST, exist_ok=True)
 
 metadata = []
 
-# ==========================
 # COPIAR AUDIOS DE MOTOSIERRA
-# ==========================
 
 chainsaw_files = [
     f for f in os.listdir(CHAINSAW_SOURCE)
@@ -57,9 +54,9 @@ for file in chainsaw_files:
 
 print(f"Motosierras: {len(chainsaw_files)}")
 
-# ==========================
-# LEER ESC-50
-# ==========================
+
+# ESC-50
+
 
 esc50 = pd.read_csv(ESC50_META)
 
@@ -74,9 +71,6 @@ negative = negative.sample(
     random_state=RANDOM_SEED
 )
 
-# ==========================
-# COPIAR NEGATIVOS
-# ==========================
 
 for _, row in negative.iterrows():
 
@@ -94,9 +88,7 @@ for _, row in negative.iterrows():
 
 print(f"No motosierras: {len(negative)}")
 
-# ==========================
-# GUARDAR CSV
-# ==========================
+# GUARDAR 
 
 metadata = pd.DataFrame(metadata)
 
