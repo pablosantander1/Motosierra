@@ -3,10 +3,7 @@ import torchaudio
 
 
 class AudioTransform(nn.Module):
-    """
-    Convierte un audio en un espectrograma Mel.
-    Compatible con CPU y GPU.
-    """
+   
 
     def __init__(self):
 
