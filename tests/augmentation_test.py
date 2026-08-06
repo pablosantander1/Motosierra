@@ -19,7 +19,6 @@ print(sr)
 audio = torch.tensor(audio, dtype=torch.float32)
 
 
-# Agregar canal [muestras] -> [canal, muestras]
 audio = audio.unsqueeze(0)
 
 
