@@ -1,0 +1,124 @@
+# ======================================
+# Python
+# ======================================
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+venv*/
+.env
+.venv/
+ENV/
+
+
+# ======================================
+# PyTorch / Machine Learning
+# ======================================
+
+# Modelos entrenados
+*.pt
+*.pth
+*.ckpt
+*.onnx
+
+# Checkpoints
+checkpoints/
+models/trained/
+
+
+# ======================================
+# Datos del proyecto
+# ======================================
+
+# Dataset completo (NO subir)
+data/
+
+# Si quieres mantener carpetas vacías
+# puedes crear un .gitkeep dentro de ellas
+
+
+# ======================================
+# Audio generado / aumentado
+# ======================================
+
+*.wav
+*.mp3
+*.flac
+*.ogg
+
+# Datos aumentados
+augmented/
+augmentation/output/
+
+
+# ======================================
+# Resultados entrenamiento
+# ======================================
+
+runs/
+logs/
+results/
+tensorboard/
+wandb/
+
+*.log
+
+
+# ======================================
+# Jupyter Notebook
+# ======================================
+
+.ipynb_checkpoints/
+
+
+# ======================================
+# IDEs
+# ======================================
+
+# Visual Studio Code
+.vscode/
+
+# PyCharm
+.idea/
+
+
+# ======================================
+# Sistema operativo
+# ======================================
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+
+
+# ======================================
+# Archivos temporales
+# ======================================
+
+*.tmp
+*.temp
+*.bak
+*.swp
+
+
+# ======================================
+# Configuraciones locales
+# ======================================
+
+.env
+*.local
+
+
+# ======================================
+# Archivos grandes
+# ======================================
+
+*.zip
+*.rar
+*.7z
