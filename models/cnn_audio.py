@@ -5,7 +5,6 @@ import torch.nn as nn
 class CNNAudio(nn.Module):
     """
     CNN para clasificación de espectrogramas Mel.
-    Entrada: [batch, 1, 64, 87]
     """
 
     def __init__(self, num_classes=1):
