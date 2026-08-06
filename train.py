@@ -6,19 +6,13 @@ from dataset import MotosierraDataset
 from models.cnn_audio import CNNAudio
 from augmentation.audio_transform import AudioTransform
 
-
-# ==========================
 # Configuración
-# ==========================
 
 BATCH_SIZE = 8
 EPOCHS = 10
 LEARNING_RATE = 0.001
 
-
-# ==========================
 # Selección dispositivo
-# ==========================
 
 if torch.cuda.is_available():
 
@@ -35,10 +29,7 @@ else:
 
     print("Entrenando con CPU")
 
-
-# ==========================
 # Dataset
-# ==========================
 
 dataset = MotosierraDataset(
 
@@ -47,7 +38,6 @@ dataset = MotosierraDataset(
     audio_dir="data"
 
 )
-
 
 train_loader = DataLoader(
 
@@ -59,23 +49,18 @@ train_loader = DataLoader(
 
 )
 
-
 print(
     "Cantidad de audios:",
     len(dataset)
 )
 
 
-# ==========================
 # Transformación Mel
-# ==========================
+
 transform = AudioTransform()
 transform = transform.to(device)
 
-
-# ==========================
 # Modelo
-# ==========================
 
 model = CNNAudio(
 
@@ -86,17 +71,11 @@ model = CNNAudio(
 
 model = model.to(device)
 
-
-# ==========================
 # Pérdida
-# ==========================
 
 criterion = nn.CrossEntropyLoss()
 
-
-# ==========================
 # Optimizador
-# ==========================
 
 optimizer = torch.optim.Adam(
 
@@ -107,13 +86,9 @@ optimizer = torch.optim.Adam(
 )
 
 
-
 print("\nInicio del entrenamiento...\n")
 
-
-# ==========================
 # Entrenamiento
-# ==========================
 
 for epoch in range(EPOCHS):
 
@@ -198,11 +173,7 @@ for epoch in range(EPOCHS):
         f"Accuracy: {accuracy:.2f}%"
     )
 
-
-
-# ==========================
 # Guardar modelo
-# ==========================
 
 torch.save(
 
