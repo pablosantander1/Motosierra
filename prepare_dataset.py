@@ -3,9 +3,7 @@ import shutil
 import random
 import pandas as pd
 
-# ==========================
 # CONFIGURACIÓN
-# ==========================
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 
